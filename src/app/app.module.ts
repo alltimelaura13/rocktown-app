@@ -14,6 +14,10 @@ import { UserComponent } from './components/user/user.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
+import { ProfileConfigComponent } from './components/user/profile-config/profile-config.component';
+
+import { reframe } from 'reframe.js';
+import { VideosComponent } from './components/videos/videos.component';
 
 
 
@@ -33,6 +37,8 @@ firebase.initializeApp(firebaseConfig);
     AppComponent,
     RegisterComponent,
     UserComponent,
+    ProfileConfigComponent,
+    VideosComponent,
     
   ],
   imports: [
@@ -41,7 +47,8 @@ firebase.initializeApp(firebaseConfig);
     HttpModule,
     RouterModule.forRoot(routes),
     AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    reframe
   ],
   providers: [AngularFireDatabase],
   bootstrap: [AppComponent]

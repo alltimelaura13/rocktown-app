@@ -1,0 +1,82 @@
+<img src="assets/app-white-3.png" width="30%" style="display: block; margin-left: auto; margin-right: auto" />
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <h3 class="title" style="font-family: junction-regular">Edit your profile</h3>
+          <br>
+        </div>
+        <div class="card-content">
+          <form (ngSubmit)="myUpdateForm.form.valid" #myUpdateForm="ngForm" novalidate>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group form-black label-floating is-empty">
+                  <label class="control-label">Username</label>
+                  <input type="text" name="username" class="form-control" [(ngModel)]="username" #myUsername="ngModel" minlength="3" required/>
+                  <!-- <p class="error" [hidden]="!myUsername.errors.minlength">Username must be at least 3 characters long.</p> -->
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group form-black label-floating is-empty">
+                  <label class="control-label">Email address</label>
+                  <input type="email" name="email" class="form-control" [(ngModel)]="email" #myEmail="ngModel">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group form-black label-floating is-empty">
+                  <label class="control-label">Fist Name</label>
+                  <input type="text" name="firstname" class="form-control" [(ngModel)]="firstName" #myFirstName="ngModel">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group form-black label-floating is-empty">
+                  <label class="control-label">Last Name</label>
+                  <input type="text" name="lastname" class="form-control" [(ngModel)]="lastName" #myLastName="ngModel">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group form-black label-floating is-empty">
+                  <label class="control-label">City</label>
+                  <input type="text" name="city" class="form-control" [(ngModel)]="city" #myCity="ngModel">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group form-black label-floating is-empty">
+                  <label class="control-label">Country</label>
+                  <input type="text" name="country" class="form-control" [(ngModel)]="country" #myCountry="ngModel">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>About Me</label>
+                  <div class="form-group form-black label-floating is-empty">
+                    <textarea class="form-control" rows="5"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-danger pull-right" (click)="update(myUsername.value, myEmail.value, 
+            myFirstName.value, myLastName.value, myCity.value, myCountry.value)" type="submit">Update Profile</button>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card card-profile">
+        <div class="card-avatar">
+          <a href="#pablo">
+            <img class="img" src="" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
