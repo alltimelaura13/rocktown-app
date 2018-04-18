@@ -6,10 +6,12 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { routes } from './app-routing/app-routing.module'
 
-
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UserComponent } from './components/user/user.component';
+import { VideosComponent } from './components/videos/videos.component';
+import { ProfileConfigComponent } from './components/user/profile-config/profile-config.component';
+import { AuthService } from './services/auth.service';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -17,10 +19,10 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
-import { ProfileConfigComponent } from './components/user/profile-config/profile-config.component';
+
 
 import { reframe } from 'reframe.js';
-import { VideosComponent } from './components/videos/videos.component';
+
 
 
 
@@ -49,12 +51,12 @@ firebase.initializeApp(firebaseConfig);
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(firebaseConfig, 'angular-auth-firebase'),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     reframe
   ],
-  providers: [AngularFireDatabase],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
