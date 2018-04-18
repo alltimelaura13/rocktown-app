@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { routes } from './app-routing/app-routing.module'
 
 import { AppComponent } from './app.component';
@@ -21,7 +21,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 import * as firebase from 'firebase/app';
 
 
-import { reframe } from 'reframe.js';
+// import { reframe } from 'reframe.js';
 
 
 
@@ -54,7 +54,7 @@ firebase.initializeApp(firebaseConfig);
     AngularFireModule.initializeApp(firebaseConfig, 'angular-auth-firebase'),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    reframe
+    // reframe
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

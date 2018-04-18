@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { FirebaseListObservable } from 'angularfire2/database-deprecated';
 import * as firebase from 'firebase/app';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 
 @Component({
   selector: 'app-register',
@@ -17,7 +21,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private routes: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private _firebaseAuth: AngularFireAuth) {
 
   }
 
@@ -25,6 +30,13 @@ export class RegisterComponent implements OnInit {
 
   submitForm(myForm) {
     console.log(myForm);
+  }
+
+  signInWithGoogle() {
+    return this._firebaseAuth.auth.signInWithPopup(
+      new firebase.auth.GoogleAuthProvider()
+    )
+    .then((res) => this.router.navigate(['home']));
   }
   
   add(myUsername, myPassword) {
