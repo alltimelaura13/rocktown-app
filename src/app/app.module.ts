@@ -12,6 +12,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { UserComponent } from './components/user/user.component';
 
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { ProfileConfigComponent } from './components/user/profile-config/profile-config.component';
@@ -46,11 +49,14 @@ firebase.initializeApp(firebaseConfig);
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    AngularFireDatabaseModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     reframe
   ],
   providers: [AngularFireDatabase],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}
