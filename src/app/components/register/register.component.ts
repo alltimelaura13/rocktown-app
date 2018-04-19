@@ -14,42 +14,44 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
   templateUrl: 'register.component.html',
   styles: []
 })
+
+
 export class RegisterComponent implements OnInit {
   logo: string = "assets/app-white.jpg";
   welcome: string = "assets/wel-drum-1.png";
   loading = false;
+  name: string;
+  email: string;
+  password: string;
+  user = this.firebaseAuth;
+
 
   constructor(
-    private routes: ActivatedRoute,
-    private router: Router,
-    private _firebaseAuth: AngularFireAuth) {
+    private firebaseAuth: AngularFireAuth,
+    private router: Router) { 
 
-  }
+    }
 
-  ngOnInit() { }
 
-  submitForm(myForm) {
-    console.log(myForm);
-  }
+    ngOnInit() { }
 
-  signInWithGoogle() {
-    return this._firebaseAuth.auth.signInWithPopup(
-      new firebase.auth.GoogleAuthProvider()
-    )
-    .then((res) => this.router.navigate(['home']));
-  }
-  
-  add(myUsername, myPassword) {
-    this.loading = true;
-    firebase.database().ref('users/').push({
-      Username: myUsername,
-      Password: myPassword
-    });
-    this.router.navigate(['home']);
-    error => {
-      // this.alertService.error(error);
-      this.loading = false;
-    };
-  }
+    // signup() {
+    //   this.authService.signup();
+    //   this.email = this.password = '';
+    // }
+    
+    
+    signInWithGoogle() {
+      return this.firebaseAuth.auth.signInWithPopup(
+        new firebase.auth.GoogleAuthProvider()
+      )
+        .then((res) => this.router.navigate(['home']));
+    }
+    
+
 
 }
+
+
+
+

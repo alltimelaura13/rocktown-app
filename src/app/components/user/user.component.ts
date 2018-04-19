@@ -6,6 +6,8 @@ import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { RegisterComponent } from '../../components/register/register.component';
+
 import { reframe } from 'reframe.js';
 
 @Component({
@@ -15,6 +17,18 @@ import { reframe } from 'reframe.js';
   providers: [AngularFireDatabase]
 })
 export class UserComponent implements OnInit {
+
+  
+  // player: YT.Player;
+  // private id: string = 'qDuKsiwS5xw';
+
+	// savePlayer (player) {
+  //   this.player = player;
+  //   console.log('video url: ', player.getVideoUrl())
+	// }
+  // onStateChange(event){
+  //   console.log('player state', event.data);
+  // }
 
   // public YT: any;
   // public video: any;
