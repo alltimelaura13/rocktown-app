@@ -32,8 +32,8 @@ export class ProfileConfigComponent implements OnInit {
       City: myCity,
       Country: myCountry,
       
-    });
-    this.router.navigate(['home']);
+    })
+  .then((res) => this.router.navigate(['home']));
     error => {
       // this.alertService.error(error);
       
