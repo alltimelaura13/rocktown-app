@@ -23,7 +23,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 
 import { Observable } from 'rxjs/Observable';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 
 

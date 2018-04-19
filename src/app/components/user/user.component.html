@@ -3,19 +3,19 @@
 <button type="buton" class="btn-block" style="display: block; margin-left: auto; margin-right: auto; width: 30%"
         (click)="configuration()">
         Edit profile
-      </button>
-      
+</button>
+
 <div class="container-fluid">
     
     <h3>Name: </h3>
-    <p>{{Username}}</p>
+    <p>{{username}}</p>
     <h3>City/Country:</h3>
-    <p></p>
+    <p>{{city && country}}</p>
     <h3>Musical skills:</h3>
-    <p></p>
+    <p>{{music}}</p>
     <h3>About me:</h3>
-    <p></p>
-  </div>
+    <p>{{about}}</p>
+</div>
 
 
 <!-- videos -->
@@ -30,11 +30,10 @@
         <div>
           <youtube-player [videoId]="id" (ready)="savePlayer($event)" (change)="onStateChange($event)"></youtube-player>
         </div>
-
       </div>
     </div>
-
-
+  </div>
+</div>
 
 
     <!-- api-key youtube: AIzaSyDzLflu7IJA5hdF6p--5nTi64Z-TRBZ2OA -->
@@ -52,5 +51,3 @@
 
 
 
-  </div>
-</div>
