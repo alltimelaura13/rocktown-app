@@ -7,3 +7,9 @@
 .container {
     padding-top: 20px;
 }
+
+.w3-button {
+    width:150px;
+    margin-left: 25px;
+
+}

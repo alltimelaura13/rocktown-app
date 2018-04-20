@@ -1,7 +1,13 @@
-<img src="assets/app-white-3.png" width="30%" style="display: block; margin-left: auto; margin-right: auto" />
-<button type="buton" class="btn-block" (click)="index()">
-    index
-  </button>
+
+<div class="col-3" style="display: inline-block">
+    <img src="assets/profile-1.png" width="70%" style="margin-left: 10px">
+    <p><button class="w3-button w3-indigo" (click)="index()">index</button></p>
+    <p><button class="w3-button w3-indigo" (click)="configuration()">Edit profile</button></p>
+</div>
+<img src="assets/app-white-3.png" width="30%" style="display: inline-block" />
+
+
+
 <div class="row">
   <div class="col-3" style="padding-top: 20px">
     <div (click)="userl()" class="container-fluid" *ngIf="user.uid == lx8LZw1WjwdqmGgXrsttKCdaGyu1">
@@ -11,9 +17,8 @@
         <p>Music skills: {{user.Music}}</p>
         <p>About me: {{user.About}}</p>
       </ul>
-      <button type="buton" class="btn-block" (click)="configuration()">
-          Edit profile
-        </button>
+
+     
     </div>
   </div>
 

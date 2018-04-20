@@ -1,0 +1,36 @@
+.card {
+    width: 500px;
+    border: 1px solid darkorchid;
+    margin: 0 auto;
+    box-shadow: 5px 5px 2px orchid;
+}
+.title {
+    font-family: cursive;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    background: linear-gradient(orchid, hotpink);
+    margin-bottom: 10px;
+    line-height: 1.5em;
+    text-align: center;
+}
+.image {
+    height: 300px;
+    width: 500px;
+    margin: 5px auto;
+}
+.action {
+    text-align: center;
+}
+.button {
+    background-color: mediumorchid;
+    width: 50px;
+    height: 50px;
+    border: mediumorchid;
+    border-radius: 50%;
+}
+.anchor {
+    text-decoration: none;
+    color: white;
+}

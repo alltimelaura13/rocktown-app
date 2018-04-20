@@ -13,6 +13,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import 'rxjs/Rx';
 import { Http } from '@angular/http';
+// import { SearchResult } from './search-result/search-result.component';
+// import { YoutubeSearchComponent } from './youtube-search/youtube-search.component';
+// import { SearchBoxComponent } from './search-box/search-box.component';
+// import { Input } from '@angular/core';
+// import { YouTubeService } from "../../services/youtube.service";
+// import { youTubeServiceInjectables } from '../../services/youtube.service';
 
 
 @Component({
@@ -20,30 +26,25 @@ import { Http } from '@angular/http';
   templateUrl: 'index-page.component.html',
   styleUrls: ['./index-page.component.css']
 })
-export class IndexPageComponent {
+export class IndexPageComponent implements OnInit {
 
-  title = 'app works!';
-  searchForm: any;
-  results$: Observable<any>;
-  searchText: any;
+  // results: SearchResult[];
+  // loading: boolean;
 
   constructor(private af: AngularFireDatabase,
     private routes: ActivatedRoute,
     private firebaseAuth: AngularFireAuth,
     public authService: AuthService,
-    private router: Router,
-    private _formBuilder: FormBuilder, private _http: Http) {
+    private router: Router) {}
 
-    const API_URL = 'https://www.googleapis.com/youtube/v3/search';
-    const API_KEY = 'AIzaSyDzqZUvI_FcLKg00BaczXSxUZARdYT7_00';
-    this.searchForm = this._formBuilder.group({
-      'searchInput': ['', Validators.required]
-    });
-    this.results$ = this.searchForm.controls.searchInput.valueChanges
-      .switchMap(query => this._http.get(`${API_URL}?q=${query}&key=${API_KEY}&part=snippet`))
-      .map(res => res.json())
-      .map(res => res.items)
+  ngOnInit() {}
+
+
+  profile() {
+    this.router.navigate(['/home'])
   }
 
-
+  // updateResults(results: SearchResult[]): void {
+  //   this.results = results;
+  // }
 }

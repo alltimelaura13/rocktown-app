@@ -1,0 +1,19 @@
+.card {
+    width: 700px;
+    margin: 0 auto;
+    border: 1px solid black;
+    box-shadow: 7px 7px 3px 1px grey;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+.size {
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+}
+.page-header {
+    width: 400px;
+    margin: 0 auto;
+    flex: 0 1 auto;
+}

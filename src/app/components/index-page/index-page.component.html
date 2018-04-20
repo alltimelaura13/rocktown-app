@@ -1,19 +1,49 @@
-<h1>
-    {{title}}
-  </h1>
-  <b>Angular Component Using Observables!</b>
-  
-  <form [formGroup]="searchForm" >
-    <label for="search">Search YouTube</label><br/>
-    <input formControlName="searchInput" id="search" />
-  </form>
-  
-  
-  
-  <div *ngFor="let result of results$ | async">
-    <a href="https://www.youtube.com/watch?v={{result.id.videoId}}" target="_blank">
-    <h3>{{result.snippet.title}}</h3>
-    </a>
-    <p>{{result.snippet.description}}</p>
-    <img [src]="result.snippet.thumbnails.default.url" style="width:100%; max-width:250px;"/>
+<div class="col-3" style="display: inline-block">
+  <img class="imgsize" src="assets/video-1.png" width="70%" style="">
+  <p>
+    <button class="w3-button w3-indigo" (click)="profile()">profile</button>
+  </p>
+</div>
+
+<img src="assets/app-white-3.png" width="30%" style="display: inline-block" />
+
+<div class="container col-9">
+  <div class="videos4">
+    <youtube-player videoId="3dqN9XsgJaU" (ready)="savePlayer($event)" (change)="onStateChange($event)"></youtube-player>
   </div>
+  <div class="videos4">
+    <youtube-player videoId="LvyyDU2gCaQ" (ready)="savePlayer($event)" (change)="onStateChange($event)"></youtube-player>
+  </div>
+  <div class="videos4">
+    <youtube-player videoId="7k8PFMQQIxI" (ready)="savePlayer($event)" (change)="onStateChange($event)"></youtube-player>
+  </div>
+  <div class="videos4">
+    <youtube-player videoId="C35k5Chu8eo" (ready)="savePlayer($event)" (change)="onStateChange($event)"></youtube-player>
+  </div>
+  <div class="videos4">
+    <youtube-player videoId="Stg7sLpsZyU" (ready)="savePlayer($event)" (change)="onStateChange($event)"></youtube-player>
+  </div>
+  <div class="videos4">
+    <youtube-player videoId="2aH6Q3BWmY8" (ready)="savePlayer($event)" (change)="onStateChange($event)"></youtube-player>
+  </div>
+</div>
+
+<!-- <div class="container">
+    <div class="page-header">
+      <h1>Youtube Header</h1>
+      <img styles="float: right" *ngIf="loading" src="assets/images/loading.gif" />
+    </div>
+  
+    <div class="row">
+      <div class="input-group input-group-lg col-md-12">
+        <app-search-box (loading)="loading = $event" (results)="updateResults($event)">
+        </app-search-box>
+      </div>
+    </div>
+  
+    <div class="row">
+      <app-search-result *ngFor="let result of results" [result]="result">
+      </app-search-result>
+    </div>
+  
+  </div> -->

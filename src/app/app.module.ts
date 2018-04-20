@@ -17,7 +17,8 @@ import { YoutubePlayerComponent } from './components/youtube-player/youtube-play
 import { ProfileConfigComponent } from './components/user/profile-config/profile-config.component';
 import { AuthService } from './services/auth.service';
 
-import { YoutubeApiService } from "./services/youtube-api.service";
+// import { YouTubeService } from "./services/youtube.service";
+// import { youTubeServiceInjectables } from './services/youtube.service';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -27,6 +28,9 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { IndexPageComponent } from './components/index-page/index-page.component';
+// import { SearchResult } from './components/index-page/search-result/search-result.component';
+// import { YoutubeSearchComponent } from './components/index-page/youtube-search/youtube-search.component';
+// import { SearchBoxComponent } from './components/index-page/search-box/search-box.component';
 
 
 
@@ -55,6 +59,9 @@ firebase.initializeApp(firebaseConfig);
     VideosComponent,
     YoutubePlayerComponent,
     IndexPageComponent,
+    // YoutubeSearchComponent,
+    // SearchBoxComponent,
+    // SearchResult
     
     
   ],
@@ -68,10 +75,11 @@ firebase.initializeApp(firebaseConfig);
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     
+    
    
     // reframe
   ],
-  providers: [AuthService, YoutubeApiService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
