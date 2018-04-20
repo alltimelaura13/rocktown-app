@@ -24,6 +24,7 @@ export class ProfileConfigComponent implements OnInit {
   music: string;
   about: string;
   user = this.firebaseAuth;
+  users: Object[];
 
 
 
@@ -32,24 +33,32 @@ export class ProfileConfigComponent implements OnInit {
     private routes: ActivatedRoute,
     private firebaseAuth: AngularFireAuth,
     public authService: AuthService,
-    private router: Router) { }
+    private router: Router) { 
+      af.list('users').valueChanges().subscribe(
+        users => {
+          this.users = users;
+        }
+      )
+    }
 
   ngOnInit() {
   }
+
+
 
   
 
   update(username, email, 
     firstName, lastName, city, country, music, about) {
     firebase.database().ref('users/' + '-LAI2y2-3-zwClCI8s3n').update({
-      Username: username.value,
-      Email: email.value,
-      FirstName: firstName.value,
-      LastName: lastName.value,
-      City: city.value,
-      Country: country.value,
-      Music: music.value,
-      About: about.value,
+      Username: username,
+      Email: email,
+      FirstName: firstName,
+      LastName: lastName,
+      City: city,
+      Country: country,
+      Music: music,
+      About: about,
       
     })
   .then((res) => this.router.navigate(['/home']));

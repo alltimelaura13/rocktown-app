@@ -12,10 +12,10 @@
   <div class="col-3" style="padding-top: 20px">
     <div (click)="userl()" class="container-fluid" *ngIf="user.uid == lx8LZw1WjwdqmGgXrsttKCdaGyu1">
       <ul>
-        <p>Name: {{username}}</p>
-        <p>City: {{user.City}}</p>
-        <p>Music skills: {{user.Music}}</p>
-        <p>About me: {{user.About}}</p>
+        <p *ngFor="let user of users"><b> Name: </b>{{user.Username}}</p>
+        <p *ngFor="let user of users"><b> City: </b>{{user.City}}</p>
+        <p *ngFor="let user of users"><b> Music: </b>{{user.Music}}</p>
+        <p *ngFor="let user of users"><b> About: </b>{{user.About}}</p>
       </ul>
 
      
