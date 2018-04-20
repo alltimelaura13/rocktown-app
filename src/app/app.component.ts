@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  player: YT.Player;
+  private id: string;
+ 
+    savePlayer (player) {
+    this.player = player;
+    console.log('player instance', player)
+    }
+  onStateChange(event){
+    console.log('player state', event.data);
+  }
 }

@@ -4,6 +4,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { Http } from '@angular/http';
 
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { routes } from './app-routing/app-routing.module'
@@ -20,11 +21,12 @@ import { YoutubeApiService } from "./services/youtube-api.service";
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
-
+// import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 import { Observable } from 'rxjs/Observable';
-import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
+import { IndexPageComponent } from './components/index-page/index-page.component';
 
 
 
@@ -52,6 +54,7 @@ firebase.initializeApp(firebaseConfig);
     ProfileConfigComponent,
     VideosComponent,
     YoutubePlayerComponent,
+    IndexPageComponent,
     
     
   ],
@@ -64,6 +67,7 @@ firebase.initializeApp(firebaseConfig);
     AngularFireModule.initializeApp(firebaseConfig, 'angular-auth-firebase'),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    
    
     // reframe
   ],

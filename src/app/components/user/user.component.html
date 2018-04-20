@@ -1,53 +1,66 @@
 <img src="assets/app-white-3.png" width="30%" style="display: block; margin-left: auto; margin-right: auto" />
-
-<button type="buton" class="btn-block" style="display: block; margin-left: auto; margin-right: auto; width: 30%"
-        (click)="configuration()">
-        Edit profile
-</button>
-
-<div class="container-fluid">
-    
-    <h3>Name: </h3>
-    <p>{{username}}</p>
-    <h3>City/Country:</h3>
-    <p>{{city && country}}</p>
-    <h3>Musical skills:</h3>
-    <p>{{music}}</p>
-    <h3>About me:</h3>
-    <p>{{about}}</p>
-</div>
-
-
-<!-- videos -->
-
-<div class="container" style="display: inline">
-  <div class="row">
-    <div class="col-sm">
-      <div>
-        <youtube-player [videoId]="id" (ready)="savePlayer($event)" (change)="onStateChange($event)"></youtube-player>
-      </div>
-      <div class="col-sm">
-        <div>
-          <youtube-player [videoId]="id" (ready)="savePlayer($event)" (change)="onStateChange($event)"></youtube-player>
-        </div>
-      </div>
+<button type="buton" class="btn-block" (click)="index()">
+    index
+  </button>
+<div class="row">
+  <div class="col-3" style="padding-top: 20px">
+    <div (click)="userl()" class="container-fluid" *ngIf="user.uid == lx8LZw1WjwdqmGgXrsttKCdaGyu1">
+      <ul>
+        <p>Name: {{username}}</p>
+        <p>City: {{user.City}}</p>
+        <p>Music skills: {{user.Music}}</p>
+        <p>About me: {{user.About}}</p>
+      </ul>
+      <button type="buton" class="btn-block" (click)="configuration()">
+          Edit profile
+        </button>
     </div>
   </div>
+
+  <!-- videos -->
+
+  <div class="container col-9">
+    <div class="videos4">
+        <youtube-player
+        videoId="3dqN9XsgJaU"
+        (ready)="savePlayer($event)"
+        (change)="onStateChange($event)"
+      ></youtube-player>
+    </div>
+    <div class="videos4">
+        <youtube-player
+        videoId="LvyyDU2gCaQ"
+        (ready)="savePlayer($event)"
+        (change)="onStateChange($event)"
+      ></youtube-player>
+    </div>
+    <div class="videos4">
+        <youtube-player
+        videoId="7k8PFMQQIxI"
+      (ready)="savePlayer($event)"
+      (change)="onStateChange($event)"
+    ></youtube-player>
+      </div>
+      <div class="videos4">
+          <youtube-player
+          videoId="C35k5Chu8eo"
+          (ready)="savePlayer($event)"
+          (change)="onStateChange($event)"
+        ></youtube-player>
+      </div>
+      <div class="videos4">
+          <youtube-player
+          videoId="Stg7sLpsZyU"
+          (ready)="savePlayer($event)"
+          (change)="onStateChange($event)"
+        ></youtube-player>
+      </div>
+      <div class="videos4">
+          <youtube-player
+          videoId="2aH6Q3BWmY8"
+          (ready)="savePlayer($event)"
+          (change)="onStateChange($event)"
+        ></youtube-player>
+      </div>
+  </div>
 </div>
-
-
-    <!-- api-key youtube: AIzaSyDzLflu7IJA5hdF6p--5nTi64Z-TRBZ2OA -->
-    <!-- <div class="max-width-1024">
-        <div class="embed-responsive embed-responsive-16by9" id="player">
-        </div>
-      </div> -->
-    <!-- <div>
-          <figure>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/6FQsIfE7sZM" frameborder="0" allowfullscreen></iframe>
-          <figcaption>This is an <code>iframe</code> that contains a video.</figcaption>
-          </figure>
-        </div> -->
-
-
-
-

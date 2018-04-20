@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { Router } from "@angular/router";
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+// import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { RegisterComponent } from '../components/register/register.component';
 import { ProfileConfigComponent } from '../components/user/profile-config/profile-config.component';
@@ -18,6 +20,7 @@ export class AuthService {
   public password: string;
   public user: Observable<any>;
   userId: string;
+  authState: any = null;
   // items: FirebaseListObservable<Item[]> = null;
   
 
@@ -26,12 +29,24 @@ export class AuthService {
     private db: AngularFireDatabase, 
     private router: Router) {
 
-      this.userId = firebase.auth().currentUser.uid;
-      this.firebaseAuth.authState.subscribe(user => {
-        if(user) this.userId = user.uid
-      })
+      this.firebaseAuth.authState.subscribe((auth) => {
+        this.authState = auth
+      });
+
+      // this.userId = firebase.auth().currentUser.uid;
+      // this.firebaseAuth.authState.subscribe(user => {
+      //   if(user) this.userId = user.uid
+      // })
     }      
     
+
+    // get currentUserId(): string {
+    //   return (this.authState !== null) ? this.authState.uid : ''
+    // }
+   
+    get currentUserName(): string {
+      return this.authState['email']
+    }
 
    signInWithGoogle() {
     return this.firebaseAuth.auth.signInWithPopup(
